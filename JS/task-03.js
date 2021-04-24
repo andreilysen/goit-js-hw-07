@@ -18,14 +18,21 @@ const images = [
 
 const galleryEl = document.querySelector('#gallery')
 galleryEl.classList.add('list__item')
-const itemEl = images.map(image => {
-    const imageList = document.createElement('li')
-    imageList.classList.add('list__item-img')
-    const imageEl = document.createElement('img')
-    imageEl.classList.add('image')
-    imageEl.src = image.url
-    imageEl.alt = image.alt
-    imageList.appendChild(imageEl)
-    return imageList
+// const itemEl = images.map(image => {
+//     const imageList = document.createElement('li')
+//     imageList.classList.add('list__item-img')
+//     const imageEl = document.createElement('img')
+//     imageEl.classList.add('image')
+//     imageEl.src = image.url
+//     imageEl.alt = image.alt
+//     imageList.appendChild(imageEl)
+//     return imageList
+// })
+
+// galleryEl.append(...itemEl)
+
+images.forEach(image => {
+  galleryEl.insertAdjacentHTML('beforeend',
+  `<li class = "list__item-img"><img class = "image" src = ${image.url} alt = ${image.alt}></li>`)
 })
-galleryEl.append(...itemEl)
+
